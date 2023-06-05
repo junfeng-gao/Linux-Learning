@@ -1,0 +1,678 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>Linux_韩顺平</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h3 id='网络连接的三种模式'><span>网络连接的三种模式</span></h3><p><span>桥接模式：虚拟系统可以和外界系统通讯，但容易造成IP冲突。</span></p><p><span>NAT模式：网络地址转换模式，虚拟系统可以和外界系统通讯，不会造成IP冲突，但外界系统不能向虚拟机通讯。</span></p><p><span>主机模式：独立系统，不与外界进行通讯。</span></p><h3 id='linux目录结果'><span>Linux目录结果</span></h3><p><span>linux的文件系统采用级层式的树状目录结果，在此结构中的最上层是根目录 /，  在Linux世界中，一切皆文件。Linux中的目录结构是规划好的。Linux会把硬件映射为一个文件来管理</span></p><p><span>根/下有root、home、bin、etc、boot等目录。</span></p><p><span>具体的目录结构：</span></p><p><span>/bin：常用，是binary的缩写，这个目录存放着最常使用的命令。还有在/user/bin     、  /user/local/bin</span></p><p><span>/sbin：s是super user，这里存放的是系统管理员使用的系统管理程序。还有在/user/sbin  、/useri/local/sbin</span></p><p><span>/home：常用，粗放普通用户的主目录，在Linux中每一个用户都会有一个自己的目录，一般该目录名是用户的账号命名。</span></p><p><span>/root：常用，该目录为系统管理员，也成为超级权限者的用户主目录。一般用户进入不了</span></p><p><span>/lib：系统开机所需要的最基本的动态连接共享库，其作用类似与Windows的DLL文件，几乎所有的应用程序都会使用到这些共享库。</span></p><p><span>/lost+found：这个目录一般是空的，当系统非法关机后，这里会存放一些文件。</span></p><p><span>/etc：常用，所有的系统管理所需要的配置文件和子目录my.conf。比如安装了mysql数据库后的配置文件。</span></p><p><span>/usr：常用，非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</span></p><p><span>/boot：常用，存放的是启动linux是使用的一些核心文件，包括一些连接文件以及镜像文件。</span></p><p><span>/proc：这是一个虚拟目录，它是系统内存的映射，访问这个目录来获取系统信息。不能动</span></p><p><span>/srv：service缩写，该目录存放一些服务启动之后需要提取的数据。不能动。</span></p><p><span>/sys：这是linux2.6内核的一个很大变化，该目录下安装了2.6内核中新出现的一个文件系统sysfs。不能动</span></p><p><span>/tmp：存放临时文件.</span></p><p><span>/dev:类似于windows的设备管理器,把所有硬件用文件的形式存储.</span></p><p><span>/media:常用,linux系统会自动识别到一些设备,如U盘,光驱等,当识别到后,linux系统会把识别到的设备挂在到这个目录下.</span></p><p><span>/mnt:常用,该目录是为了让用户临时挂载别的文件系统,我们可以将外部的存储挂载到/mnt/上,然后进入该目录就可以查看到里面的内容.</span></p><p><span>/opt:这是给主机额外安装软件所摆放的目录,如安装oracle数据库就可以放到该目录下,默认为空.</span></p><p><span>/user/local:常用,这是另一个给主机额外安装软件所安装的目录,一般都是通过编译源码方式安装的程序.</span></p><p><span>/var:常用,存放着不断扩充着的东西,习惯将经常修改的目录放到该目录下,包括各种日志文件.</span></p><p><span>/se&#39;linux:security-enhanced linux,是一个安全子系统,他能控制程序智能访问特定的文件,有三种工作模式,可以自行设置.</span></p><h3 id='远程登录到linux'><span>远程登录到linux</span></h3><p><span>原因:linux服务器是开发小组共享的,正式上线的项目是运行在公网的,程序员必须远程登录到linux服务器进行项目管理或开发.</span></p><p><span>远程登录客户端有Xshell6,Xftp6.</span></p><p><span>Xshell是目前最好的远程登录linux系统的软件,是一个强大的安全终端模拟软件,他支持ssh1,ssh2以及micros windows平台的telnet协议.</span></p><p><span>额外:ping ip操作:可以来判断两个设备间是否能够互通.</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330100904394.png" referrerpolicy="no-referrer" alt="image-20230330100904394"></p><p><span>Xshell远程登录linux系统:</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330101059507.png" referrerpolicy="no-referrer" alt="image-20230330101059507"></p><p><span>名称可以自己设置,但主机必须为所想要去连接的linux系统的ip.</span></p><p><span>双击所建的会话,弹出下图,一次性接收表示每一次连接到该会话是都需要重新输入用户和密码,在实际开发中可以选择接收并保存,以后连接到该会话就不用输入用户和密码.</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330101245981.png" referrerpolicy="no-referrer" alt="image-20230330101245981"></p><p><span>登录成功:</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330101617213.png" referrerpolicy="no-referrer" alt="image-20230330101617213"></p><p><span>远程上传下载文件Xftp ,是一个基于windows平台的SFTP,FTP我呢见传输软件,用户可以在windowsPC于linux之间传输文件.</span></p><p><span>新建会话:</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330103050052.png" referrerpolicy="no-referrer" alt="image-20230330103050052"></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330103259091.png" referrerpolicy="no-referrer" alt="image-20230330103259091"></p><p><span>额外:reboot命令:重启linux系统</span></p><h3 id='vi和vim'><span>Vi和Vim</span></h3><p><span>linux系统会内置vi文本编辑器,类似于txt.</span></p><p><span>vim具有程序编辑能力,可以看作为vi的增强版本,可以主动的一字体颜色辨别语法的正确性,方便程序设计.代码补全编译及错误跳转等方便编程.</span></p><p><span>vi和vim常用的三种模式:</span></p><p><span>1.正常模式:以vim打开一个文档就直接进入一般模式(这是默认模式).可以使用上下左右按键来移动光标,可以使用 删除字符 或删除整行 来处理文档内容,也可以使用复制  粘贴来处理文档数据.</span></p><p><span>2.插入模式:按下i  o  a  r大小写任意一个字母之后才会进入到编辑模式,常用按i.</span></p><p><span>3.命令行模式:可以提供你相关指令,完成读取\存盘\替换\离开vim\显示行号等动作. 先输入一个esc表示退出插入模式,再输入冒号:  进入命令行模式</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330104621560.png" referrerpolicy="no-referrer" alt="image-20230330104621560"></p><p><span>表示要使用vim去编写一个名叫hello的java程序文件.之后按i进入编辑模式,编写代码,</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330104842264.png" referrerpolicy="no-referrer" alt="image-20230330104842264"></p><p><span>编写完成后,先输入一个esc,再按冒号: 进入到命令行模式,输入 :wq表示保存该文件并退出(write quite)</span></p><p><span>若想要再次进入到该文件中,则再输入vim hello.java即可</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330105233253.png" referrerpolicy="no-referrer" alt="image-20230330105233253"></p><p><strong><span>vi和vim各个模式的切换:</span></strong></p><p><span>再命令行下输入 vim XXX 回车进入一般模式(正常模式),此时不能输入内容对文档进行编写, 输入i进入编辑模式, 按下esc退出编辑模式,回到了一般模式,从一般模式进入到命令模式需要按下冒号:或者/, 在命令行模式下输入情况有三种:wq(保存并退出)  :q(退出)  :q!(强制退出, 并且不保存).</span></p><p><span>vim快捷键:</span></p><p><span>1.拷贝操作是要在一般模式下进行的. 拷贝当前行: yy,拷贝当前行向下的5行:  5yy ,并粘贴,输入p(paste).</span></p><p><span>2.删除当前行 dd  ,删除当前行向下的5行  5dd.</span></p><p><span>3.在文件中查找某个单词:命令行模式下输入  /关键字 ,回车进行查找, 输入n查找下一个.  查询关键字后,查询高亮结果会出现一直保留的情况,此时在命令行模式下输入  :noh即可.</span></p><p><span>4.设置文件的行号,  取消文件的行:  命令行模式下输入   :set nu  和:set nonu</span></p><p><span>5.编辑/etc/profile文件 ,  在一般模式下,使用快捷键到该文档的最末行 G  和最首行 gg</span></p><p><span>6.在一个文件中输入&quot;hello&quot; 然后又想要撤销这个动作  u   需要在一般模式下</span></p><p><span>7.在编辑 /etc/profile文件 ,并将光标移动到  20行 : 在一般模式下输入 20 在输入shift+g</span></p><p><span>更多快捷建详见doc文档</span></p><h3 id='linux实操开机重启和用户登录注销'><span>Linux实操_开机,重启和用户登录注销</span></h3><p><span>基本介绍:</span></p><p><span>shutdown  -h  now 立即进行关机</span></p><p><span>shutdown  -h  1  会向正在操作linux的用户发送消息,将在1分钟后关机  若只输入shutdown则默认为1分钟后关机</span></p><p><span>shutdown  -r  now   立刻重新启动</span></p><p><span>halt  关机和上面的shutdown作用一样</span></p><p><span>reboot  现在立刻重新启动</span></p><p><span>sync  把内存的数据同步到磁盘</span></p><p><strong><span>注意细节</span></strong><span>:不管是重启系统还是关闭系统,</span><strong><span>首先要运行sync命令</span></strong><span>,把内存中的数据写到磁盘中,防止数据丢失.</span></p><p><span>目前shutdown和reboot/halt等命令都已经在关机前进行了sync,但小心驶得万年船.</span></p><p><span>用户登录和注销:</span></p><p><span>基本介绍:登录时尽量少用root账号登录,因为他是系统管理员,最大的权限,避免操作失误.可以利用普通用户登录,登录后再用su - 用户名  命令来切换成系统管理员.    在提示符下输入logout即可注销用户.</span></p><p><span>使用细节:logout注销指令在图形运行级别无效,  在运行级别3下有效.  运行级别在后续介绍.</span></p><h3 id='用户管理'><span>用户管理</span></h3><p><span>linux系统是一个多用户多任务的操作系统,任何一个要使用系统资源的用户,都必须首先向系统管理员申请一个账号,然后以这个账号的身份进入系统.</span></p><p><span>添加用户:</span></p><p><span>基本语法: useradd  用户名    当创建用户成功后,会自动的创建和用户名同名的家目录,默认的家目录在/home/XXX, 也可以通过useradd -d  指定目录  新的用户名 ,给新创建的用户指定家目录.  当用新用户登录时,会自动切换到该家目录下.</span></p><p><span>指定/修改密码:基本语法:passwd  用户名   </span></p><p><span>额外补充:pwd指令显示当前用户所在哪个目录下</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330115728595.png" referrerpolicy="no-referrer" alt="image-20230330115728595"></p><p><span>删除用户:管理员权限,基本语法:userdel 用户名   有删除用户但保留家目录,则该用户就不能再登录了;  或者删除用户并且删除用户家目录 :userdel  -r  用户名.(此操作要谨慎,会把删除的用户所有数据都删除,  一般都会保留删除用户的家目录).</span></p><p><span>查询用户信息：基本语法：id  用户名   当用户不存在时，返回无此用户。</span></p><p><span>切换用户：在操作linux中，如果当前用户的权限不够，可以通过su - 指令，切换到高权限用户，如root。基本语法：su  -  用户名   说明：从高权限用户切换到地权限用户不需要输入密码，反之需要密码，当需要返回到原来用户时使用logout/exit指令。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330124813991.png" referrerpolicy="no-referrer" alt="image-20230330124813991"></p><p><span>查看当前登录用户信息：基本语法whoami 或who am i查看更详细的信息。注意若登录之后又su - 指令切换到其他用户，则查询仍是最开始登录的用户。 </span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330125002841.png" referrerpolicy="no-referrer" alt="image-20230330125002841"></p><p><span>用户组：类似于角色，系统可以对有共性/权限的多个用户进行统一的管理。</span></p><p><span>新增组：groupadd  组名      删除组：groupdel  组名    增加用户时直接加上组：useradd -g  用户组  用户名    在在创建用户时没有加组，则默认会创建一个同名的组并将该用户放入到该组中。</span></p><p><span>修改用户的组：指令：usermod  -g  用户组  用户名</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330125910057.png" referrerpolicy="no-referrer" alt="image-20230330125910057"></p><p><span>用户和组相关的文件：</span></p><p><span>/etc/passwd文件：用户的配置文件，记录用户的各种信息，每行的含义为用户名：口令：用户标识符：组标识符：注释性描述：主目录：登录Shell</span></p><p><span>/etc/shadow文件：口令配置文件，每行的含义为登录名：加密口令：最后一次修改时间：最小时间间隔：最大时间间隔：警告时间：不活动时间：失效时间：标志</span></p><p><span>/etc/group文件：组group的配置文件，记录linux包含的组的信息，每行含义为组名：口令：组标识号：组内用户列表</span></p><h3 id='linux实操实用指令'><span>Linux实操_实用指令</span></h3><p><span>指定运行级别：</span></p><p><span>基本介绍：运行级别说明：0关机   1单用户(找回丢失密码)   2多用户状态没有网络服务    3多用户状态有网络服务  4系统未使用保留给用户   5图形界面   6 系统重启   常用运行级别是3和5  也可以指定默认运行级别，后面演示。</span></p><p><span>通过 init  级别数字   来切换不同的运行级别。使用systemctl get-default查看当前运行的级别。systemctl set-default 用户级别  来设置默认的运行级别。在工作中一般不使用图形化界面即不用5级别 </span></p><p><span>如systemctl set-default multi-user.target 将切换到3级别，不会有图形化界面，若要切换会图形界面，则设为graphical.target级别。</span></p><p><strong><span>找回root密码</span></strong><span>：1.首先，启动系统，进入开机系统，动作快一点，在界面中按e进入编辑界面，2.进入编辑界面，使用键盘移动往下移动光标，找到linux16 开头内容所在行，在行的最后面输入init=/bin/sh    3.输入完成后，按下ctrl+x进入单用户模式    4.在光标闪烁位置中输入mount -o remount ,rw /    完成后按下回车。   5.在新的一行最后面输入passwd，完成后回车，输入密码，然后再次确定密码即可（密码长度最好在8位以上，但不是强制的），密码修改成功后，会显示passwd....样式，说明密码修改成功。  6.接着，在光标闪烁位置最后输入touch /.autorelabel   之后回车。  7.继续在光标处输入exec  /sbin/init  再回车，等待系统自动修改密码，此过程时间可能会长，请等待，完成后系统将自动重启，新密码就会生效。     若知道当前root密码想要修改一下，则直接在终端中输入 passwd  root进行修改即可。</span></p><p><span>帮助指令：</span></p><p><span>man获取帮助信息，基本语法：man  [命令或配置文件]（功能描述：获取帮助信息）。在linux下，隐藏文件是以 . 开头的  ，命令ls可以显示出当前目录下所有非隐藏的文件信息，ls -a 命令可以展示出所有隐藏文件。  选项可以组合使用：ls  -al  展示当前目录下所有的内容，以当行形式进行展示（-l）。</span></p><p><span>help指令：基本语法：help 命令  （功能描述：获取shell内置命令的版主信息）。    也可以直接百度。</span></p><p><strong><span>文件目录类：</span></strong></p><p><span>pwd指令： 展示当前工作目录的绝对路径。  </span></p><p><span>ls指令：基本语法：ls  [选项]  [目录或文件]   常用选项：-a显示当前目录所有的文件和目录，包括隐藏的 。    -l以列表的方式展示信息。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330155313137.png" referrerpolicy="no-referrer" alt="image-20230330155313137"></p><p><span>cd指令：基本语法  [参数]     功能切换到指定目录    cd  ~ 或则  cd  :回到自己的家目录，比如你是root，则到/root</span></p><p><span>cd .. 回到当前目录的上一级目录。</span></p><p><span>mkdir指令：用于创建目录，基本语法：mkdir  [选项]  要创建的目录      常用选项-p 创建多级目录。mkdir  -p /home/animal/dog</span></p><p><span>rmdir指令：用于删除空目录，基本语法rmdir [选项]  要删除的空目标     使用细节：rmdir删除的空目标，如果目录下有内容则无法删除。若需要删除非空目录，需要使用指令   rm -rf  要删除的目录   进行强制删除，需要谨慎</span></p><p><span> touch命令：创建空文件，基本语法：touch 文件名称</span></p><p><span>cp指令：拷贝文件到指定目录。基本语法：cp [选项]  suorce  dest    常用选项-r 递归复制整个文件夹</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330161315675.png" referrerpolicy="no-referrer" alt="image-20230330161315675"></p><p><span>rm指令：移除文件或目录。基本语法rm [选项]  要删除的文件或目录    常用选项 -r递归删除整个文件夹 -f强制删除不提示。必须带有-r 选项 否则无法删除。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330161854443.png" referrerpolicy="no-referrer" alt="image-20230330161854443"></p><p><span>mv指令：移动文件与目录或重命名。基本语法：mv  oldName  newName  进行重命名  mv suorcepath destpath  进行移动文件</span></p><p><span>cat命令：查看文件内容，不能修改，所以建议对一些无需修改的重要文件使用cat进行查看。 基本语法：cat [选项]  要查看的文件  常用选项-n显示行号。 为了浏览方便，一般还会带上管道命令 | more  （管道命令即将前面得到的结果交给下一个命令） 如cat -n /etc/profile | more</span></p><p><span>more指令：是一个基于vi编辑器的文本过滤器，它以全屏幕的方式按页显示文本文件的内容，more指令中内置了若干快捷键(交互的指令) .  空格建向下翻一页   回车向下翻一行    q立刻离开more，不再显示该文件内容   ctrl+F向下滚动一屏    ctrl+B向上滚动一屏   =输出当前行的行号   :f输出文件名和当前行的行号。       基本语法  more 要查看的文件 </span></p><p><span>less指令：用来分屏查看文件内容，它的功能与more指令类似，但更加强大，支持各种显示终端，less指令在显示文件内容是，并不是一次将整个文件加载完成后才显示，而是根据显示需要加载内容，对于显示大型文件具有较高的效率。  操作说明：空格键向下翻一页    pagedown向下翻一页    pageup向上翻一页    /字符串:向下搜索该字符串；n向下查找  N向上查找        ?字符串:向上搜索字符串，n向上查找，N向下查找       q离开less查询。   基本语法：less  要查看的文件</span></p><p><span>echo指令：输出内容到控制台。基本语法echo [选项] [输出内容]</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330164510645.png" referrerpolicy="no-referrer" alt="image-20230330164510645"></p><p><span>head指令：用于显示文件的开头部分内容，默认情况下head指令显示文件的前10行内容。基本语法head 文件    head  -n  5 文件  查看文件投5行内容。</span></p><p><span>tail指令：输出文件中尾部的内容，默认情况下显示最后10行</span></p><p><span>&#39;        &gt;指令和&gt;&gt;指令:       &gt;输出重定向(会覆盖原来的内容)和&gt;&gt;追加   基本语法ls -l &gt;文件(原本输出的列表信息内容写入到a.txt文件中,覆盖写)    ls -al &gt;&gt;文件(将列表的内容追加到文件a.txt的末尾)    cat 文件1 &gt; 文件2(将文件1的内容覆盖到文件2)   echo &quot;内容&quot; &gt;&gt; 文件  (将输出的文件内容,写入到该文件中.)          </span></p><p><strong><span>ln指令</span></strong><span>:软链接也称位符号链接,类似于windows里的</span><strong><span>快捷方式,</span></strong><span>主要存放了链接其他文件的路径 .基本语法 ln -s 源文件目录  软链接名 (功能给源文件创建一个软链接).</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330170604108.png" referrerpolicy="no-referrer" alt="image-20230330170604108"></p><p><span>history指令:查看已经执行过历史命令,也可以执行历史命令. 基本语法history    history  10 查看最近的10条指令    !5去执行历史编号位5的指令</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330170948116.png" referrerpolicy="no-referrer" alt="image-20230330170948116"></p><p><strong><span>时间日期类:</span></strong></p><p><span>date指令:显示当前日期,基本语法date(显示当前时间)   date +%Y显示当前年份    date +%m显示当前月份   date +%d显示当前哪一天.       date &quot;+%Y-%mm-%d %H:%M:%S&quot;显示年月日时分秒</span></p><p><span>date指令设置日期:date  -s 字符串时间    如:date  -s &quot;2023-04-01 09:09:56&quot;就设置了系统当前时间</span></p><p><span>cal指令:查看日历指令.基本语法cal  [选项]  不加选项则显示本月日历.   显示整年日历cal 2023</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330172007117.png" referrerpolicy="no-referrer" alt="image-20230330172007117"></p><p><strong><span>搜索查找类</span></strong></p><p><span>find指令:将从指定目录下向下递归遍历其各个子目录,将满足条件的文件或者目录显示在终端.基本语法find  [搜索范围]  [选项]    选项说明-name 文件名 :(按照指定的文件名查找模式查找文件)   -user 用户名 : 查找属于指定用户名所有文件     -size 文件大小 :按照指定的文件大小查找文件.  +n大于  -n小于   n等于 </span></p><p><span>grep指令和管道符号 |:  grep过滤查找 ,管道符号 | ,表示将前一个命令的处理结果输出传递给后面的命令处理.  基本语法 grep [选项]  查找内容  源文件    常用选项-n 显示匹配行及行号   -i忽略大小写.</span></p><p><strong><span>压缩和解压类</span></strong></p><p><span>gzip和gunzip指令:前者用于压缩文件,后者用于解压. 基本语法gzip 文件  只能将文件压缩为.gz文件   gunzip 文件.gz</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330180216199.png" referrerpolicy="no-referrer" alt="image-20230330180216199"></p><p><span>zip和unzip指令:前者用于压缩文件和目录,或者解压,这个指令在项目打包发布中很有用.   基本语法  zip [选项]  XXX.zip  将要压缩的内容          unzip  [选项]   xxx.zip    常用选项-r 递归压缩,即压缩目录  -d 目录  指定解压后文件存放的目录  </span></p><p><span>tar指令:最后打包后的文件是.tar.gz文件  .基本语法tar  [选项]  XXX.tar.gz 要打包的内容     选项说明:-c产生.tar打包文件     -v显示详细信息    -f指定压缩后的文件名   -z打包同时压缩    -x解包.tar文件(没有untar,通过此选项来实现解压)</span></p><h3 id='linux实操组管理和权限管理'><span>Linux实操_组管理和权限管理</span></h3><p><span>在linux中每个用户必须属于一个组,不能独立于组之外.在linux中每个文件都有 所有者,所在组,其他组的概念.</span></p><p><strong><span>文件/目录 所有者:</span></strong></p><p><span>一般文件的创建者,谁创建了该文件,就i是该文件的所有者. 查看文件的所有者指令ls -ahl    修改文件所有者chown  用户名  文件名</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330183519600.png" referrerpolicy="no-referrer" alt="image-20230330183519600"></p><p><strong><span>组的创建:</span></strong></p><p><span>基本指令:groupadd  组名    </span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330183651518.png" referrerpolicy="no-referrer" alt="image-20230330183651518"></p><p><span>当用户创建一个文件后,这个文件的所在组就是该用户所在组. 查看文件/目录所在组ls -ahl   修改文件所在组chgrp  组名  文件名</span></p><p><span>除文件的所有者和所在组的用户外,系统的其他用户都是文件的其他组. </span></p><p><span>改变用户所在组: 在添加用户时,可以指定该用户添加到哪个组中,同样的用root的管理权限可以改变某个用户所在的组. 改变用户所在的组usermod -g  组名  用户名         usermod  -d 目录名  用户名  这个命令可以改变该用户登录的初始目录.说明:用户需要有进入到新目录的权限.</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230330184621326.png" referrerpolicy="no-referrer" alt="image-20230330184621326"></p><p><strong><span>权限的基本介绍</span></strong></p><p><span>输入命令ls -l指令或 ll指令 后出现各个文件的详细信息：</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230403155855303.png" referrerpolicy="no-referrer" alt="image-20230403155855303"></p><p><span>每行表示一个文件或文件夹的信息，具体信息解释：（从第0位开始）</span></p><p><span>0--9位说明：</span></p><p><span>	</span><span>第0位确定文件类型，有：l 是链接，相当于windows中的快捷方式；d 是目录，相当于文件夹；c 是字符设备，鼠标，键盘；b 是块设备，如硬盘。- 代表是一个普通文件。</span></p><p><span>	</span><span>第1--3位确定所有者user(该文件的所有者)拥有该文件的权限 。rwx权限详解： rwx作用到文件上时：r代表可读取查看；w代表可以修改，但不代表可以删除该文件，删除一个文件的前提条件是对该文件所在的目录有写权限，才能删除该文件；x代表可执行，可以被执行。rwx作用到目录上时：r代表可以读取，ls查看目录的内容；w代表可以修改，对目录的创建、删除、重命名目录；x代表可以执行，可以进入该目录。     补充：若发现某个文件有可执行权限时，为绿色高亮显示。</span></p><p><span>	</span><span>第4--6位确定所属组group(同用户组的)拥有该文件的权限。依旧是rwx</span></p><p><span>	</span><span>第7--9位确定其他用户other拥有该文件的权限。依旧时rwx</span></p><p><span>上图中第一列root位该文件的所有者，第二列为root所在组的用户。</span></p><p><span>另外可以使用数字来表示权限：r = 4，w = 2， x = 1，因此rwx=7</span></p><p><span>其他说明：</span></p><p><span>	</span><span>第10位：若是文件，则表示硬链接数，为1；若是目录，则表示子目录数+文件数。</span></p><p><span>	</span><span>4096：表示文件大小（字节），如果是文件夹，显示4096字节</span></p><p><span>	</span><span>时间：最后修改日期。</span></p><p><span>	</span><span>var：文件名</span></p><p><strong><span>修改权限</span></strong></p><p><span>基本说明：通过指令chmod指令，可以修改文件或者目录的权限。</span></p><p><span>第一种方式：+   -   = 变更权限。</span></p><p><span>u：所有者，g所在组，o:其他人  a:所有人（u  g  o 的综合）  如：</span></p><p><span>1）chmod  u=rwx,g=rx,o=x  文件/目录名</span></p><p><span>2）chmod  o+w  文件/目录名      +代表加上权限</span></p><p><span>3）chmod  a-x  文件/目录名</span><span>		</span><span>-代表减去权限</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230403163404766.png" referrerpolicy="no-referrer" alt="image-20230403163404766"></p><p><span>第二种方式：通过数字变更权限：r=4  w=2  x=1</span></p><p><span>chmod u=rwx,g=rx,o=x   文件/目录名  就相当于chmod 751 文件/目录名</span></p><p><strong><span>修改文件所有者：</span></strong></p><p><span>chown newowner  文件/目录   改变所有者</span></p><p><span>同时修改所有者和所在组chown newowner:newgroup  文件/目录  改变所有者和所在组</span></p><p><span>-R选项，如果时目录，则使其下所有子文件或目录递归生效。</span></p><p><span>如：将/home/test目录下所有文件和目录的所有者都修改成tom： chown -R tom /home/test</span></p><p><strong><span>修改文件所在组</span></strong></p><p><span>基本介绍：chgrp newgrp  文件/目录  改变所在组</span></p><p><span>如：将/home/kkk目录下所有文件和目录的所在组都修改为 shaolin： chgrp -R shaolin /home/kkk</span></p><p><strong><span>案例</span></strong></p><p><span>有警察和土匪两个组，jack jerry属于警察，，xh，xq属于土匪：</span></p><p><span>1）创建组：groupadd  police        groupadd bandit</span></p><p><span>2）创建用户：useradd -g police jack   useradd -g police jerry    useradd -g bandit xh     useradd -g bandit  xh</span></p><p><span>3）创建一个文件，自己可以读写，本组人可以读，其他人没有权限</span></p><p><span>	</span><span>首先jack登录，创建文件vim jack.txt      修改权限chmod 640  jack.txt</span></p><p><span>4）jack修改该文件，让其他组人可以读，本组人可以读写</span></p><p><span>	</span><span>chmod   o=r,g=rw  jack.txt</span></p><p><span>5）xh投靠警察police，看看是否能够读写.修改用户所在组需要用root修改。</span></p><p><span>	</span><span>usermod  -g police xh        xh不可以读写，因为此时，对于jack家目录，police组的其他成员还没有赋予读写权限，根本不能进去jack文件夹种；需要jack先修改对同组人读写jack家目录的权限。chmod r=rw jack，之后xh作为同组人才能读写jack.txt</span></p><p><strong><span>案例练习：</span></strong>
+<span>1）创建两个组神仙sx和妖怪yg：groupadd sx    groupadd yg</span></p><p><span>2）建立四个用户唐僧，悟空，八戒，沙僧：</span></p><p><span>	</span><span>useradd ts                useradd wk              useradd bj           useradd  ss</span></p><p><span>3）为上面用户设置密码：</span></p><p><span>	</span><span>passwd ts            passwd  wk     passwd bj          passwd  ss</span></p><p><span>4）把悟空八戒放入妖怪组，唐僧，沙僧放入神仙组：</span></p><p><span>	</span><span>usermod  -g yg  wk       usermod -g yg bj       usermod -g  sx  ts        usermod  -g  sx  ss</span></p><p><span>5）用悟空建一个文件monkey.java，该文件输出i am monkey</span></p><p><span>	</span><span>首先用悟空登录 ，创建文件vim  monkey.java     写入内容</span></p><p><span>6）给八戒一个可以rw 的权限（因为悟空与八戒在同一组，所以悟空需要赋予该文件同组拥有读写权限）</span></p><p><span>	</span><span>chmod g=rw monkey.java</span></p><p><span>7）八戒修改monkey.java加入一句话 i am  big</span></p><p><span>	</span><span>目前八戒无法进入到wk的家目录wk中，即使八戒与悟空是同一组人，也无法进行到悟空的家目录种对monkey.java进行修改。所以需要wk先修改同组对自己家目录wk的读写权限：悟空登录账号然后：chmod  g=rw  wk，之后八戒即可进入到wk的家目录中的monkey.java文件进行读写，vim  monkey.java</span></p><p><span>8）唐僧 沙僧对该文件没有权限。</span></p><p><span>	</span><span>此时唐僧 沙僧根本无法进入到悟空的家目录wk中，便就没有对该文件的权限</span></p><p><span>9）把沙僧放入妖怪组。</span></p><p><span>	</span><span>usermod -g  yg  ss   （注：root用户去切换组，自己不能修改) ，  修改之后发现沙僧的所在组已经修改为了yg，但是仍然无法进入到悟空的家目录wk中，此时可以重新登录沙僧的账号即可或者后面会讲到环境遍历时有其他区方法。之后沙僧作为wk的同组人，同属于yg组，同时悟空对自己的家目录wk的同组人的读写权限也有，所以沙僧可以进行修改monkey.java</span></p><p><strong><span>对文件夹的rwx的细节讨论</span></strong></p><p><span>	</span><span>对文件夹的同一组权限只有x权限即可执行权限，则同一组用户可以进入到该文件夹中，即可以cd ，但无法查看该文件夹中有什么东西，如使用ls命令将显示权限不足。但此外若此时该文件夹中有一个文件的同一组权限是可读可写，则同组的人虽然无法查看该文件夹中有什么东西，但是若知道本人若知道有什么文件，则可以对该文件夹中的此文件进行读写操作。  总的来说：对文件的权限就是对该文件的  对文件夹的权限就是对该文件夹的。</span></p><p><span>	</span><span>对于文件夹的同一组权限的w权限，就是能否对该目录中的文件进行删除或者创建。</span></p><p><span>	</span><span>对于文件夹的同一组权限的r权限，表示可以ls，将文件夹中目录内容进行显示。</span></p><h3 id='linux实操定时任务调度'><span>Linux实操_定时任务调度</span></h3><p><strong><span>crond任务调度</span></strong><span>  crond是linux的一个后台程序，可以定时调度设置的任务</span></p><p><span>任务调度：指系统在某个时间执行的特定的命令或程序。任务调度分类：1.系统工作：有些重要的工作必须周而复始的执行，如病毒扫描等，2.个别用户工作：个别用户可能希望执行某些程序，比如对mysql的备份。</span></p><p><span>crontab进行定时任务的设置：</span></p><p><span>基本语法：crontab [选项]    常用选项-e 编辑crontab定时任务  -l查询crontab任务  -r删除当前用户所有的crontab任务</span></p><p><span>快速入门案例：</span></p><p><span>设置任务调度文件：/etc/crontab    设置个人任务调度。执行crontab -e命令 。接着输入任务到调度文件，如：※/1 ※ ※ ※ ※ls  -l  /etc/ &gt; /tmp/to.txt 意思是每一个小时的每分钟执行这个命令，将etc文件以以列表形式转存到/tmp/下的to.txt文件中。  参数细节说明：第一个※表示一个小时中的第几分钟（0--59）；第2个※表示一天当中的第几个小时（0--23)；第三个※表示一个月当中的第几天（1--31）；第四个※表示一年当中的第几个月（1--12）；第五个※表示一周中的星期几（0--7 0和7都代表星期日）。上例中在第一个※后加了/1表示一个小时中的每一分钟。  注意：星期几和几号最好不要同时出现，因为他们定义的都是天，容易混乱</span></p><p><span>特殊符号说明：</span></p><p><span>	</span><span>※代表任何时间，比如第一个※代表一个小时中每一分钟都执行一次</span></p><p><span>	</span><span>，逗号表示不连续的时间，比如“ 0  8,12,16 * * *&quot;命令代表每天的8点0分，12点0分，16点0分都执行一次命令</span></p><p><span>	</span><span>-代表连续的时间范围，如“0 5 * * 1-6”代表周一到周六的5点0分执行一遍</span></p><p><span>	</span><span>*/n代表每间隔多久执行一次，如“※/10 * * * *”代表每间隔10分钟执行一遍</span></p><p><strong><span>案例</span></strong></p><p><span>1）每隔一分钟就将当前日期信息追加到/tmp/mydate.txt文件中</span></p><p><span>	</span><span>*/1 * * * * date &gt; &gt;  /tmp/mydate.txt</span></p><p><span>2）每个一分钟将当前日期和日历都追加到/home/mycal中</span></p><p><span>	</span><span>方法1：在写两条crontab -e语句     */1 * * * * date &gt;&gt;  /home/mycal        */1 * * * *cal &gt;&gt;  /home/mycal</span></p><p><span>	</span><span>方法2：写一个shell脚本将上面两句命令写入，然后crontab定时调度执行shell脚本：</span></p><p><span>		</span><span>首先在/home/目录下创建一个my.sh脚本，写入两句语句，</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230403190108039.png" referrerpolicy="no-referrer"></p><p><span>		</span><span>此时这个脚本并没有x可执行权限，所以root修改该脚本权限；之后crontab -e 设置定时任务：  */1 * * * * </span><span>		</span><span>/home/my.sh</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230403185525160.png" referrerpolicy="no-referrer" alt="image-20230403185525160"></p><p><span>3）每天凌晨2：00将mysql数据库testdb，备份到文件中，提示：指令为mysqldump -u root -p密码  数据库 &gt;&gt; /home/db.bak</span></p><p><span>	</span><span>法1：直接crontab -e添加调度任务，将此指令写入：0 2 * * *  mysqldump -u root  -ppasswd  testdb &gt; /home/db.bak</span></p><p><span>	</span><span>法2：可以写一个脚本，调度此脚本</span></p><p><span>crontab -r 终止任务调度    crontab -l列出当前有哪些任务调度   service crond  restart  重启任务调度</span></p><p><strong><span>at定时任务</span></strong></p><p><span>基本介绍：</span></p><p><span>1.at命令是一次性定时计划任务，at的守护进程atd会以后台模式运行，检查作业队列来运行。</span></p><p><span>2.默认情况下，atd守护进程每60秒检查作业队列，有作业，会检查作业运行时间，如果时间与当前时间匹配，则运行此作业。</span></p><p><span>3.at命令是一次性定时计划任务，执行完一次后不再执行此任务了。</span></p><p><span>4.在使用at命令时，一定要保证atd进程启动，可以使用相关指令来查看：ps -ef来查看当前正在运行的进程有哪些。信息太多，可以进行过滤：ps -ef |grep atd </span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230403191432748.png" referrerpolicy="no-referrer" alt="image-20230403191432748"></p><p><span>at命令格式： at [选项] [时间]                  按ctrl+D两次结束at命令的输入 </span></p><p><span>at命令的选项：</span></p><p><span>-m当指定的任务被完成后，将给用户发邮件，即使没有标准输出。   -I(这是大写i) atq的别名    -d   atrm的别名</span></p><p><span>-v显示任务将被执行的时间   -c打印任务的内容到标准输出。     -V显示版本信息。   -q&lt;队列&gt;  使用指定的队列</span></p><p><span>-f&lt;文件&gt; 从指定文件读入任务而不是从标准输入读入。 -t&lt;时间参数&gt; 以时间参数的形式提交要运行的任务</span></p><p><span>at指定时间的方法：</span></p><p><span>1.接受在当天的hh:mm式的时间指定，假设该时间已经过去，那么就放在第二天执行，如04:00</span></p><p><span>2.使用midnight（深夜），noon（中午），teatime（一般下午4点）等比较模糊的词语来指定时间</span></p><p><span>3.采用12小时制，即在时间后加上am或pm来说明，如12pm</span></p><p><span>4.指定命令执行的具体日期，指定格式为month day或mm/dd/yy（月/日/年）或dd.mm.yy，指定的日期必须跟在指定的时间后面。</span><strong><span>如：04:00 2021-03-1</span></strong><span>，直接精确指定时间</span></p><p><span>5.使用相对计时法。指定格式为now+count time-units，now就是当前时间，time-units是时间单位，这里能够是minutes，hours，days，weeks，count是时间的数量，几天，几小时。如：now + 5 minutes</span></p><p><span>6.直接使用today tomorrow 来指定完成命令的时间。</span></p><p><span>应用案例：</span></p><p><span>1）2天后的下午5点执行 /bin/ls  /home   即将home目录的内容list出来</span></p><p><span>	</span><span>终端命令输入at  5pm + 2 days回车后，输入指令/bin/ls  /home   最后按ctrl+D两次结束at输入</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230403193539175.png" referrerpolicy="no-referrer" alt="image-20230403193539175"></p><p><span>通过atq命令来查看系统中没有执行的工作任务。</span></p><p><span>2）明天17点输出时间到指定文件内，如/root/date100.log</span></p><p><span>	</span><span>at 5pm tomorrow     回车  输入指令date  &gt;  /root/date100.log</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230403193912786.png" referrerpolicy="no-referrer" alt="image-20230403193912786"></p><p><span>3）2分钟后，输处时间到指定文件内</span></p><p><span>	</span><span>at now + 2 minutes  回车后  输入指令date   &gt;  /root/date200.log</span></p><p><span>4）删除已经设置的任务：  atrm  编号</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230403194308901.png" referrerpolicy="no-referrer" alt="image-20230403194308901"></p><p><span>at也可以执行一个脚本：at now + 2 minutes回车后输入执行脚本的代码，如：/root/my.sh即可</span></p><h3 id='linux分区'><span>Linux分区</span></h3><p><span>原理介绍：</span></p><p><span>1.linux来说无论有几个分区，分给哪一个目录使用，它归根到底就只有一个根目录，一个独立且唯一的文件结构，linux中每个分区都是用来组成整个文件系统的一部分。</span></p><p><span>2.linux采用了一种叫做”载入“的处理方法，它的整个文件系统中包含了一整套的文件和目录，且将一个分区和一个目录练习起来，这时要载入的一个分区将使它的存储空间在一个目录下获得。</span></p><p><span>硬盘说明：</span></p><p><span>1.Linux硬盘分IDE硬盘和SCSI硬盘，目前基本上都是SCSI硬盘</span></p><p><span>2.对于IDE硬盘，驱动器标识符为”hdx~“ ,其中hd表明分区所在设备的类型，这里是指IDE硬盘了。x为盘号（a为基本盘，b为基本从盘  c为辅助主盘  d为辅助从盘），~代表分区，前4个分区采用数字1到4表示，他们是主分区或拓展分区，从5开始就是逻辑分区，如hda3表示为第一个IDE硬盘上的第三个主分区或拓展分区，hdb2表示第2个IDE硬盘上的第二个主分区或拓展分区。</span></p><p><span>3.对于SCIS硬盘，则标识为sdx~，是用sd来表示分区所在的设备的类型的，其余则和IDE硬盘的表示方法一样.</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230403200149005.png" referrerpolicy="no-referrer" alt="image-20230403200149005"></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230403200215631.png" referrerpolicy="no-referrer" alt="image-20230403200215631"></p><p><span>mountpoint挂载点.</span></p><p><strong><span>磁盘情况查询</span></strong></p><p><span>查询系统整体磁盘使用情况：</span></p><p><span>基本语法： df  -h   当已用资源达到80%，就需要考虑对空间进行清理</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404161649716.png" referrerpolicy="no-referrer" alt="image-20230404161649716"></p><p><span>查询指定目录的磁盘占用情况：</span></p><p><span>基本语法：df  -h  /目录    若没有带后面具体的目录，则默认为当前目录 。  参数说明： -s指定目录占用大小汇总  -h带计量单位   -a含文件  --max-depth=1 来指定查询子目录的深度      -c列出明细的同时，增加汇总值</span></p><p><span>案例：查询/opt目录磁盘占用情况，深度为1  ： du  -h  -max--depth=1  /opt</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404162500172.png" referrerpolicy="no-referrer" alt="image-20230404162500172"></p><p><span>磁盘情况-工作实用指令：</span></p><p><span>1.统计/opt文件夹下文件的个数：ls  -l  /opt  | grep &quot;^-&quot; | wc -l</span></p><p><span>	</span><span>详细解释：ls -l展示此目录下所有文件详情，再利用管道符进行筛选，“^-”匹配以 - 开头的文件，（以d开头的为文件夹），wc -l统计出总数。</span></p><p><span>2.统计/opt文件夹下的目录的个数：  ls  -l  /opt  | grep &quot;^d&quot;  |  wc -l </span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404163144130.png" referrerpolicy="no-referrer" alt="image-20230404163144130"></p><p><span>3.统计/opt文件夹下文件的个数，包括子文件夹里的： ls  -lR  /opt | grep  &quot;^-&quot;  |wc -l</span></p><p><span>	</span><span>详细解释：加上一个-R即表示递归展示。  大写R</span></p><p><span>4.统计/opt文件夹下文件的个数，包括子文件夹里的： ls  -lR  /opt | grep  &quot;^d&quot;  |wc -l</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404163531820.png" referrerpolicy="no-referrer" alt="image-20230404163531820"></p><p><span>5.以树状显示目录结构： tree /目录名     （注意：如果没有tree命令，则用yum  install tree  安装之后再使用，保证网络条件）</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404163852990.png" referrerpolicy="no-referrer" alt="image-20230404163852990"></p><p>&nbsp;</p><h3 id='linux实操篇网路配置'><span>Linux实操篇_网路配置</span></h3><p><strong><span>linux网络配置原理图：</span></strong></p><p><span>linux中查看ip使用命令ifconfig    windows中是使用ipconfig指令查看    </span><strong><span>ip地址要在同一个网段才能相互通讯</span></strong><span>，前三个数相同属于同一个网段</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404165300437.png" referrerpolicy="no-referrer" alt="image-20230404165300437"></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404164550005.png" referrerpolicy="no-referrer" alt="image-20230404164550005"></p><p><span>查看windows中的VMware网络配置ipconfig：</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404165024042.png" referrerpolicy="no-referrer" alt="image-20230404165024042"></p><p><span>查看虚拟网络编辑器和修改ip地址：在vmare中可以查看虚拟网络编辑器中的信息，可以修改，如子网、NAT设置中的网关ip。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404165726826.png" referrerpolicy="no-referrer" alt="image-20230404165726826"></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404165734524.png" referrerpolicy="no-referrer" alt="image-20230404165734524"></p><p><span>ping测试主机之间网络连通性：</span></p><p><span>基本语法：ping 目的机ip          测试当前服务器是否可以连接到目的主机    按ctrl+c终止ping</span></p><p><strong><span>linux网络环境配置</span></strong></p><p><span>第一种方法：自动获取：登陆后，通过界面来设置自动获取ip，特点：linux启动后会自动获取ip，避免ip冲突，缺点：每次自动获取的ip地址可能不一样，就不能做服务器。所以平时自己用机器时，可以自动获取，但在工作环境中，肯定是要固定ip地址的，不能自动获取。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404172757105.png" referrerpolicy="no-referrer" alt="image-20230404172757105"></p><p><strong><span>第二种方式，指定ip</span></strong><span>：直接修改配置文件来指定ip，并可以连接到外网(程序员推荐).</span></p><p><span>编辑vi  /etc/sysconfig/network-scripts/ifcfg-ens33           要求：将ip地址配置静态的，比如192.168.200.130</span></p><p><span>ifcfg-ens33文件说明：</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230404173244440.png" referrerpolicy="no-referrer" alt="image-20230404173244440"></p><p><span>bootproto=dhcp为自动分配的ip地址 ，将其修改为：static   然后给它指定ip地址，网关，域名解析器，如：IPADDR=192.168.200.130     GATEWAY=192.168.200.2   DNS1=192.168.200.2，然后保存文件。之后打开虚拟机的虚拟网络编辑器，修改vmnet8的子网ip为192.168.200.0，让其与linux处于统一网段中，再进行NAT设置，将网关设置为192.168.200.2  最后应用确定，输入service network restart 或reboot重启网络服务或重启系统。</span></p><p><strong><span>设置主机名和hosts映射：</span></strong></p><p><span>设置主机名：为了方便记忆，可以给linux系统设置主机名，也可以根据需要修改主机名。指令：hostname 查看主机名。修改文件在 /etc/hostname  指定。 修改后重启生效。</span></p><p><strong><span>设置host映射：思考：如何通过主机名能够找到某个linux系统。</span></strong></p><p><span>windows在c:/windows/system32/drivers/etc/hosts文件指定即可.例添加上：192.168.200.130  gjf23    之后就可以在windows系统中通过主机名ping  gjf23   的方式，ping通连接到linux系统</span></p><p><span> linux中在etc/hosts文件指定。例如添加上：192.168.200.1  zhengjiuzhe-PC  之后就可以在linux中通过ping zhengjiuzhe-PC  的方式，连接到windows系统。</span></p><p><strong><span>主机名解析过程分析(Hosts、DNS)：</span></strong></p><p><span>Hosts是一个文本文件，用来记录IP和hostname(主机名）的映射关系。</span></p><p><span>DNS就是Domain Name System是域名系统，是互联网上作为域名和ip地址相互映射的一个分布式数据库。</span></p><p><span>例如：用户在浏览器地址输出</span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span>：</span></p><p><span>1）浏览器先检查浏览器缓存中有没有该域名解析ip地址，有就先调用这个ip完成解析；如果没有，检查操作系统DNS解析器缓存，如果有直接返回ip完成解析。这两个缓存，可以理解为本地解析器缓存。</span></p><p><span>2）一般来说，当电脑第一次成功访问某一网站后，在一定时间内，浏览器或操作系统会缓存它的ip地址(DNS解析记录)。如在cmd窗口输入ipconfig /displagdns可以查看DNS域名解析缓存。</span></p><p><span>3）如果本地解析器缓存没有找到对于的映射，检查系统中hosts文件中有没有配置对于的域名ip映射，如果有，则完成解析并返回ip</span></p><p><span>4）如果本地DNS解析器缓存和hosts文件中均没有找到对于ip映射，则到互联网上的域名服务DNS进行解析域。</span></p><p><span>5）若还没找到，则返回域名不存在</span></p><p><span>总结：浏览器缓存---本机操作系统DNS解析器缓存---本机hosts文件中---公网的本地域名服务器DNS进行解析</span></p><h3 id='linux实操进程管理'><strong><span>Linux实操_进程管理</span></strong></h3><p><span>在linux中每一个执行的查询都称为一个进程，每一个进程都分配一个ID号（pid，进程号）。</span></p><p><span>每个进程都能以两种方式存在：前台和后台，所谓前台进程就是用户的屏幕上可以进行操作的，后台进程则是实际在操作，但由于屏幕上无法看到进程，通常使用后台方式执行。</span></p><p><span>一般系统的服务都是以后台进程的方式存在，而且都会常驻在系统中，直到关机才结束。</span></p><p><strong><span>显示系统执行的进程：</span></strong></p><p><span>基本介绍：ps命令是用来查看目前系统中，有哪些正在执行，以及他们的执行状况，可以不加任何参数。</span></p><p><span>ps显示的信息选项：user是用户名称；pid为进程识别号；%cpu是进程占用cpu的百分比；%mem是进程占用物理内存的百分比；vsz进程占用的虚拟内存大小(KB)；rss是进程占用的物理内存大小；tty是终端机号；time是此进程占用cpu时间；command是正在执行的命令或进程名。  stat是运行状态：S表示sleep休眠，s表示该进程是会话的先导进程，R表示运行状态，N表示进程拥有比普通优先级更低的优先级，D短暂等待，Z僵死进程(需要清除)，T被跟踪或被停止进程；     </span></p><p><span>ps  -a显示当前终端的所有进程信息       ps  -u以用户的格式显示进程信息      ps  -x显示后台进程运行的参数。</span></p><p><span>ps详解：1.指令：ps  -aux | grep xxx  ，比如我只想看看有没有sshd服务，sshd是ssh远程连接用到的守护进程。</span></p><p><span>应用实例：以全格式显示当前所有的进程，查看进程的父进程。</span></p><p><span>ps  -ef是以全格式显示当前所有的进程   -e显示所有进程   -f全格式</span></p><p><span>ps  -ef | grep xxx （用于显示某个进程）  </span></p><p><span>显示信息详解：UID是用户id，pid是进程id，ppid是该进程的父进程id。</span></p><p><strong><span>终止进程：</span></strong><span>          </span></p><p><span>介绍：若是某个进程执行一般需要停止时，或是已消耗了很大的系统资源时，此时可以考虑停止此进程。使用kill命令完成此项任务。  若kill掉一个进程，则它的子进程也会被kill。</span></p><p><span>基本语法：kill  [选项]  进程号        或         killall 进程名（可以支持通配符。这在系统因负载过大而变得很慢时很有用）        常用选项 -9表示强迫进程立刻停止。</span></p><p><strong><span>查看进程树：</span></strong></p><p><span>基本语法：pstree  [选项]  可以更加直观的看进程信息    常用选项-p显示进程的pid，-u显示进程的所属用户。</span></p><h3 id='linux服务管理'><span>Linux_服务管理</span></h3><p><span>介绍：服务本质就是进程，但是是运行在后台的，通常都会监听某个端口，等待其他程序的请求，比如mysql，sshd，防火墙dent，因此我们又称为守护进程，是linux中非常重要的知识。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406165455396.png" referrerpolicy="no-referrer" alt="image-20230406165455396"></p><p><strong><span>service管理指令：</span></strong></p><p><span>1.service 服务名  [start | stop | restart | reload | status]</span></p><p><span>2.在centos7.0以后，很多服务不再使用service指令，而是systemctl指令（后面讲）</span></p><p><span>3.service指令管理的服务再/etc/init.d查看。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406165252430.png" referrerpolicy="no-referrer" alt="image-20230406165252430"></p><p><span>查看服务名：</span></p><p><span>方式1：使用setup指令后，进入系统服务 ，就可以看到全部，前面待*的代表着随linux启动自动启动。取消自启动的方法：光标移动到需要取消自启动的项目前的※号处，按下空格就会取消。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406170013463.png" referrerpolicy="no-referrer" alt="image-20230406170013463"></p><p><span>方式2：如上的指令：ls -l  /etc/init.d中可以看到service指令管理的服务。</span></p><p><strong><span>服务的运行级别（runlevel）：</span></strong></p><p><span>Linux系统有7中运行级别：常用的级别是3和5。工作环境常用级别3，即没有图形化界面</span></p><p><span>运行级别0：系统停机状态，系统默认运行级别不能设置为0，否则不能正常启动</span></p><p><span>1：单用户工作状态，root权限，用于系统维护，禁止远程登录</span></p><p><span>2：多用户状态（没有NFS，即网络文件系统，即没有网络），不支持网络。</span></p><p><strong><span>3</span></strong><span>：完全的多用户状态（有NFS），无界面，登录后进入控制台命令行模式</span></p><p><span>4：系统未使用，保留</span></p><p><strong><span>5</span></strong><span>：X11控制台，登录后进入图像GUI模式</span></p><p><span>6：系统正常关闭并重启，默认运行级别不能设为6，否则不能正常启动。</span></p><p><span>linux开机流程：</span></p><p><span>开机--》BIOS--》/boot--》systemd进程(进程号为1)--》运行级别--》运行级别对应的服务</span></p><p><span>查看当前运行级别：systemctl  get-default</span></p><p><span>设置默认的运行级别：systemctl  set-default  目标级别.target</span></p><p><span>centos7后运行级别说明：在etc/initab中如下：multi-user.target为运行级别3  graphical.target为运行级别5</span></p><p><strong><span>chkconfig指令：</span></strong></p><p><span>介绍：通过chkconfig命令可以给服务的各个运行级别设置自启动/关闭。chkconfig指令管理的服务在/etc/init.d查看。注意centos7后，很多服务使用systemctl管理。</span></p><p><span>基本语法：查看服务： chkconfig --list</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406171840351.png" referrerpolicy="no-referrer" alt="image-20230406171840351"></p><p><span>chkconfig  --level  5  服务名  on/off  将某个服务在某个运行级别设置为自启动/关闭</span></p><p><span>chkconfig重新设置服务自启动或关闭后，需要重启机器reboot生效。</span></p><p><strong><span>systemctl管理指令：</span></strong></p><p><span>基本语法：systemctl  [start | stop | restart | status]  服务名</span></p><p><span>systemctl指令管理的服务在/usr/lib/systemd/system查看</span></p><p><span>查看服务开机启动状态：systemctl  list-unit-files （可以使用grep进行过滤）</span></p><p><span>设置服务开机启动：systemctl  enable  服务名       默认就控制了运行级别3和5</span></p><p><span>关闭服务开机启动：systemctl  disable  服务名       默认就控制了运行级别3和5</span></p><p><span>查询某个服务是否是自启动的：systemctl is-enabled  服务名</span></p><p><span>例：关闭防火墙：systemctl  stop firewalld </span></p><p><span>注意：关闭或启动防火墙后，会立刻生效。这种方式只是临时生效，当重启系统后，还是回归到以前对服务的设置。如果希望这是某个服务自启动或关闭 永久生效，要使用systemctl  enable/disable  服务名</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406173452464.png" referrerpolicy="no-referrer" alt="image-20230406173452464"></p><p><strong><span>打开或关闭指定端口：</span></strong></p><p><span>在真正的生产环境中，往往需要将防火墙打开，但是如果防火墙打开了，那么外部请求数据包就不能跟服务器监听端口通讯。这时，需要打开指定的端口，如80，22，8080等。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="c++"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"># 尝试确认主机服务器的某个端口是否可用</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">telnet</span> <span class="cm-number">192.168.7.42</span> <span class="cm-number">8080</span> &nbsp; &nbsp; <span class="cm-comment">//如果防火墙开着，那么外部请求数据包就不能跟服务器监听端口通讯了</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p><span>firewall指令：</span></p><p><span>打开端口：firewall-cmd  --permanent --add-port=端口号/协议      （如：111/tcp）</span></p><p><span>额外：使用指令netstat  -anp 可以查看路由表、实际的网络连接以及每一个网络接口设备的状态信息，就可以查看端口号及对应的协议。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406192500085.png" referrerpolicy="no-referrer" alt="image-20230406192500085"></p><p><span>关闭端口：firewall-cmd  --permanent  --remove-port=端口号/协议 </span></p><p><span>打开或者关闭设置完后，需要重新载入，才能生效：firewall-cmd  --reload</span></p><p><span>查询端口是否开放：firewa-cmd  --query-port=端口号/协议</span></p><p><strong><span>动态监控进程：</span></strong></p><p><span>介绍：top与ps命令相似，他们都用来显示正在执行的进程。top与ps最大的不同之处在于top在执行一段时间后可以更放心正在运行的进程。</span></p><p><span>基本语法： top  [选项]   选项说明-d秒数：指定top命令每隔几秒更新，默认是3秒；-i使top不显示任何闲置或僵死进程(zombie,需要清除掉)；-p通过指定监控进程ID来仅仅监控某个进程的状态。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406193800536.png" referrerpolicy="no-referrer" alt="image-20230406193800536"></p><p><span>交互操作：P以cpu使用率排序，默认就是次项。M以内存的使用率排序。N以PID排序。q退出top</span></p><p><span>案例：监控特定用户，如监控tom用户：输入top指令回车，查看执行的进程，然后按下u回车再输入用户名即可。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406194334982.png" referrerpolicy="no-referrer" alt="image-20230406194334982"></p><p><span>案例：终止指定的进程，比如结束掉tom登录：输入top指令回车，然后输入k回车，再输入要结束的进程id号。  再输入9进行强制剔除tom用户的登录。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406194529587.png" referrerpolicy="no-referrer" alt="image-20230406194529587"></p><p><strong><span>监控网络状态：</span></strong></p><p><span>查看系统网络情况netstat：（常用）</span></p><p><span>基本语法：netstat  [选型]   选型说明-an按一定顺序排列输出   -p显示哪个进程在调用 。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406195608796.png" referrerpolicy="no-referrer" alt="image-20230406195608796"></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406195549606.png" referrerpolicy="no-referrer" alt="image-20230406195549606"></p><p><span>案例：查看服务名为sshd的服务的信息：netstat  -anp |grep sshd</span></p><p><strong><span>检测主机连接命令ping：</span></strong></p><p><span>是一种网络检测工具，它主要用来检测远程机主机是否正常，或是两部主机间的网线或网卡故障。如：ping  对方ip地址</span></p><h3 id='linux实操rpm与yum'><span>Linux实操_rpm与yum</span></h3><p><strong><span>rpm包的管理：</span></strong></p><p><span>介绍：rpm用于互联网下载包的打包及安装工具，它包含在某些Linux分发版中。它生成具有.RPM扩展名的文件。rpm是RedHat Package Manager(红帽软件包管理工具)，类似于windows的setup.exe，这一文件格式名称虽然打上了RedHat的标志，但理论是通用的。Linux的分发版本都有采用（如suse，redhat，centos等等）</span></p><p><span>rem包的简单查询指令：</span></p><p><span>查询已安装的rpm列表：rpm  -qa | grep xx    不加过滤则查看显示所有的</span></p><p><span>例：查看当前系统是否安装了firefox：rpm  -qa  |grep  firefox。返回一个rpm包名：firefox-60.2.2-1.el7.centos.x86_64        firefox名称   60.2.2-1版本号   el.centos.x86_64使用操作系统,如果是i686，i386表示32位系统，noarch表示通用。</span></p><p><span>查询某个软件包是否已安装：rpm  -q  软件包名</span></p><p><span>查询某个软件包信息：rpm  -qi  软件包名</span></p><p><span>查询某个软件包中的文件：rpm   -ql  软件包名</span></p><p><span>查询文件所属的软件包：rpm  -qf  文件全路径名</span></p><p><strong><span>卸载rmp包：</span></strong></p><p><span>基本语法：rpm  -e  rpm包的名称</span></p><p><span>如果其他软件包依赖于要删除的软件包，则删除软件包时会产生错误信息。若是想要强制删除，可以增加参数 --nodeps强制删除，但一般不建议这样做。</span></p><p><strong><span>安装rpm包：</span></strong></p><p><span>基本语法：rpm -ivh rpm包全路径名称       参数说明：i=install  v=verbose提示  h=hash进度条    rpm包在桌面光盘里面packages里面，全是rpm安装包</span></p><p><strong><span>yum：</span></strong></p><p><span>介绍：yum是一个shell前端软件包管理器。基于rpm包管理，能够从指定的服务器自动下载rpm包并安装，可以自动处理依赖关系，并且一次安装所有依赖的软件包。</span></p><p><span>yum基本指令：</span></p><p><span>查询yum服务器是否有需要安装的软件：yum  list | grep  xx软件名</span></p><p><span>安装指定的yum包：yum  install xxx软件包</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230406203236970.png" referrerpolicy="no-referrer" alt="image-20230406203236970"></p><p><span>Linux_搭建javaee开发环境</span></p><p><span>如果需要在Linux下进行javaee的开发，我们需要安装如下：idea、tomcat、mysql、jdk.</span></p><p><strong><span>1.安装jdk</span></strong></p><p><span>1）先创建一个文件目录：mkdir /opt/jdk  （一般安装的软件都放在opt下）</span></p><p><span>2）将jdk通过xftp上次到/opt/jdk下，进入linux中该目录：cd  /opt/jdk</span></p><p><span>3）解压压缩包：tar  -zxvf  jdk包名(使用tab键补全)</span></p><p><span>4）新建一个文件加mkdir  /user/local/java。将上面解压出来的jdk文件夹移动到该目录下。mv jdk1.8/   /user/local/java/ （一般会将目录放到/user/local下进行统一管理，有点类似于windows的programes文件夹</span></p><p><span>5）进入到/user/local/java/中。</span></p><p><span>6）配置环境变量：vim /etc/profile进行编辑，在末尾添加：export  JAVA_HOME= /user/local/java/jdk目录  再添加export PATH=$JAVA_HOME/bin:$PATH</span></p><p><span>7）source  /etc/profile 让添加的环境变量生效。</span></p><p><span>8）编写hello.java进行简单测试：使用javac hello.java进行编译   java  hello指令运行程序。</span></p><p><strong><span>2.安装tomcat：</span></strong></p><p><span>1）新建目录mkdir  /opt/tomcat，上传安装文件，并解压到/opt/tomcat文件夹。</span></p><p><span>2）进入到上述目录对安装文件解压：tar  -zxvf  apache-tomcat-8    之后进入解压目录/bin，启动tomcat  ./startup.sh</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407132010438.png" referrerpolicy="no-referrer" alt="image-20230407132010438"></p><p><span>3）开放8080端口：firewall-cmd  --permanent  --add-port=8080/tcp。之后进行重载生效firewall-cmd  --reload      可以查询8080端口是否被打开了firewall-cmd  --query-port=8080/tcp</span></p><p><span>4）测试是否能够访问到tomcat：去访问：          linux主机ip:8080</span></p><p><strong><span>3.安装idea2020：</span></strong></p><p><span>1）官网下载安装包，新建文件夹并上传到此文件夹/opt/idea</span></p><p><span>2）解压缩安装包：tar -zxvf  idea名  </span></p><p><span>3）进入idea bin目录，启动 ./idea.sh  配置jdk（会自动识别之前安装的jdk目录）</span></p><p><span>4）编写程序测试</span></p><p><strong><span>4.mysql5.7的安装：</span></strong></p><p><span>1）新建文件夹/opt/mysql，并cd进去</span></p><p><span>2）运行wget </span><a href='http://dev.mysql.com/get/mysql-5.7.26-1.el7.x86_64.rpm-bundle.tar' target='_blank' class='url'>http://dev.mysql.com/get/mysql-5.7.26-1.el7.x86_64.rpm-bundle.tar</a><span>，下载mysql安装包</span></p><p><span>PS：centos7.6自带的类mysql数据库是mariadb，会跟mysql冲突，要先删除。</span></p><p><span>3）运行tar -xvf mysql-5.7.26-1.el7.x86_64.rpm-bundle.tar </span></p><p><span>4）运行rpm -qa|grep mari，查询mariadb相关安装包</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407133502038.png" referrerpolicy="no-referrer" alt="image-20230407133502038"></p><p><span>5）运行rpm -e --nodeps mariadb-libs，卸载</span></p><p><span>6）然后开始真正安装mysql，依次运行以下几条</span></p><p><span>rpm -ivh mysql-community-common-5.7.26-1.el7.x86_64.rpm</span></p><p><span>rpm -ivh mysql-community-libs-5.7.26-1.el7.x86_64.rpm</span></p><p><span>rpm -ivh mysql-community-client-5.7.26-1.el7.x86_64.rpm</span></p><p><span>rpm -ivh mysql-community-server-5.7.26-1.el7.x86_64.rpm</span></p><p><span>7）运行systemctl start mysqld.service，启动mysql</span></p><p><span>8）然后开始设置root用户密码</span></p><p><span>Mysql自动给root用户设置随机密码，运行grep &quot;password&quot; /var/log/mysqld.log可看到当前密码</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407133524975.png" referrerpolicy="no-referrer" alt="image-20230407133524975"></p><p><span>9）运行mysql -u root  -p，用root用户登录，提示输入密码可用上述的，可以成功登陆进入mysql命令行</span></p><p><span>10）设置root密码，对于个人开发环境，如果要设比较简单的密码（</span><em><strong><span>*</span><span>生产环境服务器要设复杂密码</span><span>*</span></strong></em><span>），可以运行</span></p><p><span>set global validate_password_policy=0;  提示密码设置策略</span></p><p><span>（validate_password_policy默认值1，）</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407133534409.png" referrerpolicy="no-referrer" alt="image-20230407133534409"></p><p><span>11）set password for &#39;root&#39;@&#39;localhost&#39; =password(&#39;hspedu100&#39;);</span></p><p><span>运行flush privileges;使密码设置生效</span></p><h3 id='linuxshell编程'><span>Linux_Shell编程</span></h3><p><span>介绍：1.Linux运维工程师在进行服务器集群管理时，需要编写shell程序来进行服务器管理。2.对于javaee和python程序员，工作的需要会要求编写一些shell脚本进行程序或者服务器的维护，比如编写一个定时备份数据库的脚本。3.对于大数据程序员，需要编写shell程序来管理集群。</span></p><p><span>Shell是一个命令行解释器，它为用户提供了一个向linux内核发送请示以便运行程序的界面系统级程序，用户可以用shell来启动、挂起、停止甚至编写一些程序。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407134449880.png" referrerpolicy="no-referrer" alt="image-20230407134449880"></p><p><strong><span>shell脚本的执行方式：</span></strong></p><p><span>脚本格式要求：1.脚本以#!/bin/bash开头 （告诉linux内核以那种shell执行，Linux内核有多种shell，但常用的是bash为主）  2.脚本需要有可执行权限</span></p><p><span>编写第一个shell脚本，输出helloworld：脚本约定俗成以   .sh结尾</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407135048739.png" referrerpolicy="no-referrer" alt="image-20230407135048739"></p><p><span>脚本的执行：方式1：首先需要赋予脚本可执行的权限，即+x权限，再执行脚本，输入脚本的绝对路径或相对路径进行执行。  方式2：不用赋予脚本+x权限，直接执行：sh  脚本名  如：sh  hello.sh</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407135126506.png" referrerpolicy="no-referrer" alt="image-20230407135126506"></p><p><strong><span>shell的变量：</span></strong></p><p><span>介绍：1.linux Shell中的变量分为：系统变量和用户自定义变量。2.系统变量：$PATH  $PWD  $SHELL  $USER等等，比如echo  $HOME等等。3.显示当前shell中所有的系统变量，使用指令：set</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407135605799.png" referrerpolicy="no-referrer" alt="image-20230407135605799"></p><p><span>shell变量的定义：</span></p><p><span>定义变量：变量=值（注意=中间不要有空格）</span></p><p><span>撤销变量：unset 变量</span></p><p><span>声明静态变量：readonly 变量   （注意，不能unset）</span></p><p><span>快速入门：</span></p><p><span>定义一个变量A：A=100    输出变量echo A=$A  （注意，输出变量需要加$,定义变量无需,此处的A=是原样输出,也可以写成echo &quot;A=$A&quot;) </span></p><p><span>撤销变量A；unset A</span></p><p><span>声明静态变量B=2： readonly B=2   输出echo B=$B</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407140422515.png" referrerpolicy="no-referrer" alt="image-20230407140422515"></p><p><span>定义变量的规则：1.变量名称可以由字母、数字、下划线组成，但不能以数字开头。2.等号两侧不能由空格。3.变量名称一般都习惯为大写。</span></p><p><span>将命令的返回值赋给变量：1.A=反引号date反引号 ，运行里面的指令，并将结果返回给变量A   2.A=$(date)等价于反引号.</span></p><p><strong><span>设置环境变量:</span></strong></p><p><span>1.将shell变量输出为环境变量(/全局变量):  export  变量名=变量值   (写在/etc/profile里面)</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407141503779.png" referrerpolicy="no-referrer" alt="image-20230407141503779"></p><p><span>2.让修改后的配置信息立刻生效:  source  配置文件</span></p><p><span>3.查询环境变量的值:  echo $变量名</span></p><p><span>案例:</span></p><p><span>1.在/etc/profile文件中定义TOMCAT_HOME环境变量:</span></p><p><span>进入文件进行编辑:vim /etc/profile  最文件尾添加: export  TOMCAT_HOME=/opt/tomcat的目录 保存profile文件,之后刷新source /etc/profile</span></p><p><span>2.查看环境变量TOMCAT_HOME的值:echo  $TOMCAT_HOME</span></p><p><span>3.注意声明的环境变量/全局变量就可以在另一个shell程序中直接使用TOMCAT_HOME变量了。</span></p><p><span>额外：shell的多行注释使用     :&lt;&lt;! 注释内容！  单行注释就用 #</span></p><p><strong><span>位置参数变量：</span></strong></p><p><span>介绍：当我们执行一个shell脚本时，如果希望获取到命令行的参数信息，就可以使用到位置参数变量。如： ./myshell.sh 100 200  这就是一个执行shell的命令行，可以在myshell脚本中获取到参数信息，即将100 200作为参数传入到myshell.sh脚本中。</span></p><p><span>基本语法：</span></p><p><span>$n功能描述：n为数字，$0代表命令本身，$1-$9代表第一到第九个参数，十以上的参数需要用大括号包含${10}</span></p><p><span>$* 功能描述：代表命令行中所有的参数，$*把所有的参数看成一个整体。</span></p><p><span>$@功能描述：也代表命令行中所有的参数，不过$@把每个参数区别对待。</span></p><p><span>$#这个变量代表命令行中所有参数的个数。</span></p><p><span>案例：编写一个shell脚本myshell.sh，在脚本中获取到命令行的各个参数信息。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407144435241.png" referrerpolicy="no-referrer" alt="image-20230407144435241"></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407144512311.png" referrerpolicy="no-referrer" alt="image-20230407144512311"></p><p><strong><span>预定义变量：</span></strong><span>用得不多</span></p><p><span>介绍：就是shell设计者事先已经定义好的变量，可以直接在shell脚本中使用。</span></p><p><span>基本语法：</span></p><p><span>$$ 当前进程的进程号PID   </span></p><p><span>$！后台运行的最后一个进程的PID</span></p><p><span>$? 最后一次执行的命令的返回状态。如果这个变量的值为0，证明上一个命令正确执行；如果这个变量的值非0(具体是哪个数，由命令自己来决定)，则证明上一个命令执行不正确。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407145110691.png" referrerpolicy="no-referrer" alt="image-20230407145110691"></p><p><span>额外：myshell.sh  &amp;  这表示以后台运行的方式执行此脚本</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407145234862.png" referrerpolicy="no-referrer" alt="image-20230407145234862"></p><p><strong><span>运算符：</span></strong></p><p><span>基本语法：</span></p><p><span>1.“$((运算式))” 或 “$[运算式]”  或者expr m + n    注意expr运算符间要有空格，expr m-n    expr </span><span>\</span><span>*,/,%  乘 除 取余    推荐第二种使用[]</span></p><p><span>例如：计算（2+3）x 4  如：$(((2+3)</span><span>*</span><span>4))  或  $[(2+3)*4]  </span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407150142166.png" referrerpolicy="no-referrer" alt="image-20230407150142166"></p><p><span>例：请求出命令行的两个参数的和。提供使用位置参数变量。  SUM=$[$1+$2]    echo  &quot;sum=$SUM&quot;</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407150345606.png" referrerpolicy="no-referrer" alt="image-20230407150345606"></p><p><strong><span>条件判断：</span></strong></p><p><span>基本语法：</span></p><p><span>[  condition  ] (注意condition前后要有空格)  非空返回true，可以使用$?验证（0为true，&gt;1为false）</span></p><p><span>应用案例：</span></p><p><span>[  gjf  ] 返回true       [  ]返回false    (注意即使中括号内什么都不写，也要在前后加空格，否则语法错误)</span></p><p><span>[  condition  ]  &amp;&amp;  echo OK || echo notok  条件满足，就执行后面的语句 </span></p><p><span>常用的判断条件：</span></p><p><span>1）=字符串比较   2）两个整数的比较：-lt小于  -le小于等于  -eq等于  -gt大于  -ge大于等于  -ne不等于</span></p><p><span>3）按照文件权限进行判断：-r由读的权限  -w有写的权限  -x有执行的权限</span></p><p><span>4）按照文件类型进行判断：-f文件存在并且式一个常规的文件    -e文件存在  -d文件存在并且式一个目录</span></p><p><span>案例：</span></p><p><span>1.“ok”是否等于“ok”   </span></p><p><span>   if [  &quot;ok&quot;  =  &quot;ok&quot;  ]         （注意：等号左右有空格）</span></p><p><span>   then</span></p><p><span>				</span><span>echo &quot;equal“</span></p><p><span>	</span><span>fi             (fi代表if语句结束)</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407152317496.png" referrerpolicy="no-referrer" alt="image-20230407152317496"></p><p><span>2.23是否大于等于22</span></p><p><span>	</span><span>if [  23 -ge  22  ]</span></p><p><span>	</span><span>then</span></p><p><span>			</span><span>echo &quot;大于&quot;</span></p><p><span>	</span><span>fi</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407152433681.png" referrerpolicy="no-referrer" alt="image-20230407152433681"></p><p><span>3./root/shcode/aaa.txt是否存在</span></p><p><span>  if  [  -f  /root/shcode/aaa.txt   ]</span></p><p><span> then</span></p><p><span>		</span><span>acho  &quot;存在&quot;</span></p><p><span> fi</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407152624401.png" referrerpolicy="no-referrer" alt="image-20230407152624401"></p><p><strong><span>流程控制：</span></strong></p><p><strong><span>if判断</span></strong><span>：基本语法：</span></p><p><span>if  [  条件判断式  ]</span></p><p><span>then </span></p><p><span>        代码</span></p><p><span>fi</span></p><p><span>或者：多分支：</span></p><p><span>if  [  条件判断式  ]</span></p><p><span>then</span></p><p><span>		</span><span>代码</span></p><p><span>elif  [条件判断式]</span></p><p><span>then</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> 代码</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>fi</span></p><p><span>案例：编写一个shell程序，如果输入的参数大于等于60，则输出“及格了” 如果小于60 则输出“不及格”</span></p><p><span>if  [  $1 -ge  60  ]      （使用位置参数变量）</span></p><p><span>then </span></p><p><span>		</span><span>echo &quot;及格了&quot;</span></p><p><span>elif  [  $1  -lt  60  ]    （这里也可以直接用else ，就可以不用写判断条件）</span></p><p><span>then</span></p><p><span>	</span><span>echo  &quot;不及格&quot;</span></p><p><span>fi</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407153511880.png" referrerpolicy="no-referrer" alt="image-20230407153511880"></p><p><strong><span>case语句：</span></strong></p><p><span>基本语法：</span></p><p><span>case  $变量名  in</span></p><p><span>”值1“）</span></p><p><span>		</span><span>执行代码1</span></p><p><span>;;</span></p><p><span>&quot;值2&quot;）</span></p><p><span>       执行代码2</span></p><p><span>;;</span></p><p><span>.........</span></p><p><span>*)</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span>上面都不执行，则执行此代码</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>;;</span></p><p><span>esac</span></p><p><span>案例：当命令行参数是1时，输出”周一“，是2时输出”周二“ ，其他情况输出”other“</span></p><p><span>case  $1  in</span></p><p><span>&quot;1&quot;)</span></p><p><span>		</span><span>echo  &quot;周一&quot;</span></p><p><span>;;</span></p><p><span>&quot;2&quot;)</span></p><p><span>		</span><span>echo  &quot;周二&quot; </span></p><p><span>;;</span></p><p><span>*)</span></p><p><span>		</span><span>echo  &quot;other&quot;</span></p><p><span>;;</span></p><p><span>esca</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407154241928.png" referrerpolicy="no-referrer" alt="image-20230407154241928"></p><p><strong><span>for循环：</span></strong></p><p><span>基本语法1：</span></p><p><span>for  变量  in  值1  值2  值3 ....</span></p><p><span>do</span></p><p><span>  代码</span></p><p><span>done</span></p><p><span>案例：打印命令行输入的参数（这里就可以看出$*和$@的区别）</span></p><p><span>for   i   in   $*   (注意，此处若将$*用引号引起来，则会将命令行中输入的所有参数当作一个整体进行了输出)</span></p><p><span>do</span></p><p><span>	</span><span>echo  &quot;$i&quot;</span></p><p><span>done</span></p><p><span>或者</span></p><p><span>for  i  in $@</span></p><p><span>do</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">echo "$i"</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>done</span></p><p><span>基本语法2：</span></p><p><span>for  ((  初始值;循环控制条件;变量变化  ))  (注意两个小括号，且里卖有空格)</span></p><p><span>do</span></p><p><span>	</span><span>  代码</span></p><p><span>done</span></p><p><span>案例：从1加到100的值输出显示</span></p><p><span>#!/bin/bash</span></p><p><span>SUM=0</span></p><p><span>for  (( i=1;i&lt;=100;i++))</span></p><p><span>do</span></p><p><span>		</span><span>SUM=$[$SUM+i]</span></p><p><span>done</span></p><p><span>echo  &quot;总和=$SUM&quot;</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407155619031.png" referrerpolicy="no-referrer" alt="image-20230407155619031"></p><p><strong><span>while循环：</span></strong></p><p><span>基本语法1：</span></p><p><span>while  [  条件判断式  ]</span></p><p><span>do</span></p><p><span>	</span><span> 代码</span></p><p><span>done</span></p><p><span>案例：从命令行输入一个数n，统计1+2+3.。。+n的值</span></p><p><span>SUM=0</span></p><p><span>i=1</span></p><p><span>while  [  $i  -le  $1  ]    （注意不能写&lt;=）</span></p><p><span>do</span></p><p><span>		</span><span>SUM=$[$SUM+$i]</span></p><p><span>		</span><span>i=$[$i=1]  (注意不能i++)</span></p><p><span>done</span></p><p><span>echo  &quot;总和=$SUM&quot;</span></p><p><strong><span>read获取控制台输入：</span></strong></p><p><span>基本语法：</span></p><p><span>read  选型   参数     解释选型：-p指定读取值时的提示符；-t指定读取值时的等待时间(秒)，如果没有在指定的时间内输入，就不再等待了。参数：变量：指定读取值的变量名</span></p><p><span>案例：</span></p><p><span>1.读取控制台输入一个NUM1值。  </span></p><p><span>read  -p ”请输入一个数NUM1=“  NUM1</span></p><p><span>echo ”输入的NUM1=$NUM1“</span></p><p><span>2.读取控制台输入一个NUM1值,等待10s。</span></p><p><span>read  -t 10  -p ”请在10秒内输入一个数“   NUM2</span></p><p><span>echo ”输入的NUM2=$NUM2“</span></p><p><strong><span>函数：</span></strong></p><p><span>shell编程和其他编程语言一样，有系统函数，也可以自定义函数。系统函数中，我们注意结束两个：</span></p><p><span>系统函数1：basename，功能：返回完整路径最后 / 的部分，常用于获取文件名</span></p><p><span>basename  [pathname]  [suffix]</span></p><p><span>basename  [string]  [suffix]  功能描述：basename命令会删除掉所有的前缀，包括最后一个 / ，然后将字符串显示出来。  选型： suffix为后缀，如果suffix被指定了，basename会将pathname或string中的suffix去掉</span></p><p><span>案例：返回 /home/aaa/test.txt的test.txt部分：  basename  /home/aaa/test.txt</span></p><p><span>系统函数2：dirname，返回完整路径最后 / 的前面的部分，常用于返回路径部分</span></p><p><span>dirname   文件绝对路径   功能：从给定的包含绝对路径的文件名中去掉文件名，返回剩下的路径。</span></p><p><span>案例：返回/home/aaa/test.txt 的/home/aaa部分      dirname  /home/aaa/test.txt</span></p><p><span>自定义函数基本语法：</span></p><p><span>function  函数名()</span></p><p><span>{</span></p><p><span>		</span><span>代码；</span></p><p><span>		</span><span>[return int;]</span></p><p><span>}</span></p><p><span>调用时直接写：  函数名 [值]</span></p><p><span>案例：计算输入两个参数的和，getSum</span></p><p><span>function getSum(){    （注意：小括号内一般不会带有参数列表，）</span></p><p><span>		</span><span>SUM=$[$n1+$n2]</span></p><p><span>		</span><span>echo  &quot;和为=$SUM&quot;</span></p><p><span>}</span></p><p><span>read  -p &quot;请输入一个数&quot;  n1</span></p><p><span>read  -p &quot;请输入一个数&quot;  n2</span></p><p><span>调用自定义函数：getSum  $n1  $n2</span></p><p><strong><span>shell编程综合案例：</span></strong></p><p><span>需求分析：</span></p><p><span>1.每天凌晨2：30备份数据库hspedu到 /data/backup/db</span></p><p><span>2.备份开始和备份结束能够给出相应的提示信息</span></p><p><span>3.备份后的文件要求以备份时间为文件名，并打包成.tar.gz的形式。</span></p><p><span>4.在备份的同时，检查是否有10天前备份的数据库文件，如果有就删除。</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230407170047002.png" referrerpolicy="no-referrer" alt="image-20230407170047002"></p><p><span>编写一个脚本放在usr/sbin目录下(这是root管理员目录)</span></p><p><span>#!/bin/bash</span></p><p><span>#备份目录</span></p><p><span>BACKUP=/data/backup/db</span></p><p><span>#获取当前时间</span></p><p><span>DATETIME=$(date + %Y-%m-%d_%H%M%S)</span></p><p><span>#数据库的地址</span></p><p><span>HOST=localhost</span></p><p><span>#数据库的用户名</span></p><p><span>DB_USER=root</span></p><p><span>#数据库密码</span>
+<span>DB_PW=gjf100</span></p><p><span>#备份的数据库</span></p><p><span>DATABASE=hspedu</span></p><p><span>#创建备份目录，如果存放备份文件的目录不存在就创建</span></p><p><span>if  [  !  -d  &quot;${BACKUP}/${DATETIME}&quot;  ]   (注意：此处取变量值时加了{}是因为来明确此变量，防止将$BACKUP/ 当作一个变量，产生歧义)</span></p><p><span>then </span></p><p><span>		</span><span>mkdir  -p  ${BACKUP}/${DATETIME}    (-p是创建多级目录)</span></p><p><span>fi</span></p><p><span>#备份数据库</span></p><p><span>musqldump  -u${DN_USER}  -p${DB_PW}   --host=${HOST}  -q  -R   databases=${DATABASE} | gzip  &gt;  ${BACKUP}/${DATETIME}/${DATETIME}.sql.gz</span></p><p><span>#将文件处理为tar.gz  ,先切换目录</span></p><p><span>cd  ${BACKUP}</span></p><p><span>tar  -zcvf  ${DATETIME}.tar.gz    ${DATETIME}</span></p><p><span>#删除对应的备份目录</span></p><p><span>rm  -rf  ${BACKUP}/${DATETIME}</span></p><p><span>#删除10天前的备份文件</span></p><p><span>find  ${BACKUP}  -atime  +10  -name &quot;*.tar.gz&quot;  -exec  rm  -rf  {}  </span><span>\</span><span>;(解释：-atime读取时间，-m修改时间，-ctime创建时间;     -exec  rm  -rf  {}  </span><span>\</span><span>;是固定写法)</span></p><p><span>echo &quot;备份数据库${DATABASE}成功&quot;</span></p><p><span>#设置定时任务;</span></p><p><span>crontab  -e回车进行编辑，30 2  *  *  *  /usr/sbin/mysql_db_backup.sh</span></p><p><img src="C:\Users\GJF\AppData\Roaming\Typora\typora-user-images\image-20230410093315896.png" referrerpolicy="no-referrer" alt="image-20230410093315896"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
